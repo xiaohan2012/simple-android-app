@@ -5,6 +5,9 @@
          It contains the path to the SDK. It should *NOT* be checked into
          Version Control Systems. -->
     <property file="local.properties" />
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
 
     <!-- The ant.properties file can be created by you. It is only edited by the
          'android' tool to add properties to it.
@@ -88,5 +91,17 @@
     -->
     <!-- version-tag: 1 -->
     <import file="${sdk.dir}/tools/ant/build.xml" />
+
+ <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+<target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
 
 </project>
