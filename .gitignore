@@ -28,4 +28,6 @@ proguard/
 *.iws
 .idea/
 
-local.properties
+# local.properties
+
+*.*~
